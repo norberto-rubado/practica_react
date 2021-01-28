@@ -1,65 +1,54 @@
 import React from "react"
+import PropTypes from "prop-types"
 
 import "../App.css"
 
-function Summary() {
+function Summary(props) {
 return (
 
-    <div classNameName="summary">
-{/*         <!-- Amount of Products in DB --> */}
-        <div className="col-md-4 mb-4">
-            <div className="card border-left-primary shadow h-100 py-2">
-                <div className="card-body">
-                    <div className="row no-gutters align-items-center">
-                        <div className="col mr-2">
-                            <div className="text-xs font-weight-bold text-primary text-uppercase mb-1"> Products in Data Base</div>
-                            <div className="h5 mb-0 font-weight-bold text-gray-800">135</div>
-                        </div>
-                        <div className="col-auto">
-                            <i className="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div className="summary_1">
 
-{/*         <!-- $$$ of all products in DB --> */}
-        <div className="col-md-4 mb-4">
-            <div className="card border-left-success shadow h-100 py-2">
-                <div className="card-body">
-                    <div className="row no-gutters align-items-center">
-                        <div className="col mr-2">
-                            <div className="text-xs font-weight-bold text-success text-uppercase mb-1"> Amount in products</div>
-                            <div className="h5 mb-0 font-weight-bold text-gray-800">$546.456</div>
-                        </div>
-                        <div className="col-auto">
-                            <i className="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div className="row">
 
-{/*         <!-- Amount of users in DB --> */}
-        <div className="col-md-4 mb-4">
-            <div className="card border-left-warning shadow h-100 py-2">
-                <div className="card-body">
-                    <div className="row no-gutters align-items-center">
-                        <div className="col mr-2">
-                            <div className="text-xs font-weight-bold text-warning text-uppercase mb-1">Users quantity
+            {props.info_summary.map(info => 
+
+                <div className="col-md-4 mb-4">
+{/*                     <div className="card border-left-primary shadow h-100 py-2"> */}
+                    <div className= {info.color}>
+                        <div className="card-body">
+                            <div className="row no-gutters align-items-center">
+                                <div className="col mr-2">
+                                    <div className="text-xs font-weight-bold text-primary text-uppercase mb-1"> {info.titulo}</div>
+                                    <div className="h5 mb-0 font-weight-bold text-gray-800">{info.cifra}</div>
+                                </div>
+                                <div className="col-auto">
+                                    <i className= {info.icono} ></i>
+                                </div>
                             </div>
-                            <div className="h5 mb-0 font-weight-bold text-gray-800">38</div>
-                        </div>
-                        <div className="col-auto">
-                            <i className="fas fa-user-check fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
-            </div>
+
+            )}
+
         </div>
 
     </div>
 
-)}
+)};
+
+Summary.propTypes = {
+    titulo: PropTypes.string,
+    cifra: PropTypes.string,
+    color: PropTypes.string,
+    icono: PropTypes.string
+};
+
+Summary.defaultProps = {
+    titulo: "N/A",
+    cifra: "0",
+    color: "card border-left-primary shadow h-100 py-2",
+    icono: "fas fa-clipboard-list fa-2x text-gray-300"
+};
 
 export default Summary
