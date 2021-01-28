@@ -1,5 +1,7 @@
 import React from "react"
 
+import dummy_avatar from '../dummy-avatar.jpg';
+
 import "../App.css"
 
 function Topbar() {
@@ -41,7 +43,7 @@ return (
                 <li className="nav-item dropdown no-arrow">
                     <a className="nav-link dropdown-toggle" href="/" id="userDropdown">
                         <span className="mr-2 d-none d-lg-inline text-gray-600 small">Walter White</span>
-                        <img className="img-profile rounded-circle" src="dummy-avatar.jpg" alt="avatar"/>
+                        <img className="img-profile rounded-circle" src={dummy_avatar} alt="avatar"/>
                     </a>
                 </li>
 
